@@ -7,7 +7,7 @@ def cache(func: Callable) -> Callable:
 
     @wraps(func)
     def inner(*args: Any, **kwargs: Any) -> Any:
-        key_result = (args, tuple(kwargs.values()), func.__name__)
+        key_result = (args, tuple(kwargs.items()), func.__name__)
         if key_result in cache:
             print("Getting from cache")
         else:
